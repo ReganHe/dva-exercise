@@ -37,6 +37,7 @@ class UserEditModal extends Component {
         this.hideModalHandler();
       }
     });
+    this.props.form.resetFields();
   };
 
   render() {
