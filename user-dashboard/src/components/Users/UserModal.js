@@ -14,7 +14,6 @@ class UserEditModal extends Component {
 
   showModalHandler = (e) => {
     if (e) {
-      // e.stopPropagation();
       e.preventDefault();
     }
 
@@ -49,7 +48,7 @@ class UserEditModal extends Component {
       wrapperCol: { span: 14 },
     };
     return (
-      <span>
+      <span className={styles.normal}>
         <span onClick={this.showModalHandler}>
           {children}
         </span>
