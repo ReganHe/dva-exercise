@@ -10,12 +10,13 @@ const app = dva();
 app.use(createLoading());
 
 // 3. Model
+// console.log(models);
 models.forEach((m) => {
-  app.model(m);
+  app.model(m.default);
 });
 
 // 4. Router
-app.router(require('./router'));
+app.router(require('./router').default);
 
 // 5. Start
 app.start('#root');
