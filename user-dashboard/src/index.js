@@ -10,7 +10,6 @@ const app = dva();
 app.use(createLoading());
 
 // 3. Model
-// console.log(models);
 models.forEach((m) => {
   app.model(m.default);
 });

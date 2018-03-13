@@ -16,14 +16,13 @@ export default {
   effects: {
     * fetch({ payload: { page = 1 } }, { call, put }) {
       const { data, headers } = yield call(usersService.fetch, { page });
-
       yield put({
         type: 'save',
         payload: {
           data,
-          total: parseInt(headers && headers['x-total-count'] ? headers['x-total-count'] : "10", 10),
-          page: parseInt(page, 10),
-        },
+          total: parseInt(headers['x-total-count'], 10),
+          page: parseInt(page, 10)
+        }
       });
     },
     * remove({ payload: id }, { call, put }) {
@@ -41,7 +40,7 @@ export default {
     * reload(action, { put, select }) {
       const page = yield select(state => state.users.page);
       yield put({ type: 'fetch', payload: { page } });
-    },
+    }
   },
   subscriptions: {
     setup({ dispatch, history }) {
